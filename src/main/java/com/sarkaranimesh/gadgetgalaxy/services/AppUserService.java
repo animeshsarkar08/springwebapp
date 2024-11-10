@@ -1,6 +1,6 @@
 package com.sarkaranimesh.gadgetgalaxy.services;
 
-/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import com.sarkaranimesh.gadgetgalaxy.models.AppUser;
 import com.sarkaranimesh.gadgetgalaxy.repositories.AppUserRepository;
 
-@Service*/
-public class AppUserService {//implements UserDetailsService {
-	
-/*	@Autowired
+@Service
+public class AppUserService implements UserDetailsService {
+		
+	@Autowired
 	private AppUserRepository repo;
 	
 	@Override
@@ -29,8 +29,12 @@ public class AppUserService {//implements UserDetailsService {
 			return springUser;
 		}
 		
-		return null;
+		//return null;
+		return User.withUsername("animesh@gmail.com")
+					.password("Animesh@123")
+					.build();
+
 				
 	}
 
-}*/
+}
