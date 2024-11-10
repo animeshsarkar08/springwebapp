@@ -32,6 +32,7 @@ public class AppUserService implements UserDetailsService {
 		//return null;
 		return User.withUsername("animesh@gmail.com")
 					.password("{noop}Animesh@123")
+					.roles("USER")
 					.build();
 
 				
