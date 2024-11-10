@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
 @Configuration
 @EnableWebSecurity
@@ -37,7 +38,13 @@ public class SecurityConfig {
 	@Bean public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
+	@Bean public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+		auth.inMemoryAuthentication()
+			.withUser("animesh@gmail.com")
+			.password("{noop}Animesh@123")
+			.roles("USER")
+	}
 	
 
 }
